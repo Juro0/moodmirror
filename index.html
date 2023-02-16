@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="it">
+
+    <head>
+        
+        <!-- meta tags -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- customization -->
+        <title>moodmirror &bull; juri gemignani</title>
+        <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+        
+        <!-- css files -->
+        <link rel="stylesheet" href="style/style-lg.css">
+        <link rel="stylesheet" href="style/style-sm.css" media="screen and (max-width: 768px)">
+
+        <!-- icons from iconscout unicons -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+        <!-- js library for popup include -->
+        <script src="libs/csi.min.js"></script>
+    
+    </head>
+
+    <body>
+        
+        <!-- LEFT MENU -->
+        <div class="menu">
+
+            <img src="assets/logotype.png" class="menu-logo">
+        
+            <div class="menu-buttons">
+        
+                <button class="menu-button menu-button-page active" id="menubtn-diary">diario</button>
+                <button class="menu-button menu-button-page" id="menubtn-stats">statistiche</button>
+                <button class="menu-button menu-button-page" id="menubtn-info">info</button>
+                <button class="menu-button" id="menubtn-lenguage">lingua</button>
+                <button class="menu-button" id="menubtn-reset">reset</button>
+        
+            </div>
+        
+            <div class="menu-footer">
+        
+                <i class="uil uil-info-circle menu-info-logo"></i>
+        
+                <a class="menu-info-text">mood mirror is on github</a>
+        
+            </div>
+        
+        </div>
+
+        <!-- CONFIRM WINDOW -->
+        <div id="confirm-window" class="hide">
+
+            <div class="shadow"></div>
+        
+            <div class="confirm-window absolute-center">
+                
+                <p class="confirm-title">CONFIRM</p>
+                
+                <p class="confirm-content">stai per eliminare tutti i tuoi dati, comprese note e statistiche. questa azione non è revocabile in alcun modo.</p>
+        
+                <span class="confirm-buttons">
+        
+                    <button class="confirm-button cancel" id="confirm-deny">annulla</button>
+                    <button class="confirm-button confirm" id="confirm-accept">conferma</button>
+        
+                </span>
+        
+            </div>
+        
+        </div>
+
+        <!-- ADD NOTE WINDOW -->
+        <div id="addnote-window" class="hide">
+
+            <div class="shadow"></div>
+        
+            <div class="newnote-window absolute-center">
+        
+                <div class="mood-selector">
+                    <i class="uil uil-grin ms-mood happy-mood"></i>
+                    <i class="uil uil-smile ms-mood good-mood"></i>
+                    <i class="uil uil-confused ms-mood confused-mood"></i>
+                    <i class="uil uil-sad-squint ms-mood sad-mood"></i>
+                </div>
+        
+                <p id="input-error"></p>
+        
+                <div class="mood-questions">
+        
+                    <p class="label">descrivi la tua giornata in una parola</p>
+                    <input type="text" class="newnote-input" id="oneword">
+        
+                    <p class="label">scrivi una nota sulla tua giornata</p>
+                    <textarea class="newnote-input newnote-textarea" id="note"></textarea>
+        
+                </div>
+        
+                <span>
+                    <button class="confirm-button cancel" id="addnote-deny">annulla</button>
+                    <button class="confirm-button confirm confirm-pink" id="addnote-confirm">conferma</button>
+                </span>
+        
+            </div>
+        
+        </div>
+
+        <!-- CHANGE LEN WINDOW -->
+        <div id="changelenguage-window"  class="hide">
+
+            <!-- flags from  -->
+
+            <div class="shadow"></div>
+
+            <div class="lenguage-changer absolute-center">
+
+                <p class="close-lenguage-window">
+                    <i class="uil uil-times" id="close-lenguage-window"></i>
+                </p>
+
+                <div class="lenguage">
+                    <img src="assets/flags/italian.png" class="flag-img" id="it_IT">
+                    <p class="flag-label">italian</p>
+                </div>
+
+                <div class="lenguage">
+                    <img src="assets/flags/english.png" class="flag-img" id="en_EN">
+                    <p class="flag-label">english</p>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <!-- DIARY -->
+        <div class="page pos-3" id="diary">
+
+            <!-- ADD NOTE BUTTON -->
+            <div class="add-note hor-center-addmenu" id="addnote-btn">
+                <i class="uil uil-plus-circle"></i>
+                <div>
+                    <p class="add-note-cta">racconta la tua giornata!</p>
+                    <p class="add-note-subtitle">questo schermo terrà tutto per sè...</p>
+                </div>
+            </div>
+
+            <!-- NOTES -->
+            <div class="diary-notes-container" id="diary-parent">
+                
+                <!--
+                    <div class="note hor-center">
+
+                        <div class="note-first-line">
+
+                            <i class="uil uil-smile ms-mood good-mood"></i>
+                            <p class="note-title">formidabile</p>
+                            <p class="note-date">31/01/2007</p>
+
+                        </div>
+
+                        <p class="note-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum commodo, odio sit amet elementum vulputate, elit eros feugiat orci, nec pretium mi turpis eu nisi. Proin maximus ullamcorper felis, in tempus elit dignissim vel. Integer at viverra nibh, ut maximus erat. Suspendisse placerat, mi quis posuere dapibus, erat nisi rutrum nisl, in ullamcorper mi magna non metus. Integer ultrices diam orci, vitae tincidunt nisi viverra facilisis. Quisque non enim eget mauris vehicula accumsan eu in ex. Nulla semper nulla ut lacus mattis aliquam. Vivamus vitae dui vitae augue ornare sodales sit amet at urna. Duis vel orci ultrices metus varius.
+                        </p>
+
+                    </div>
+                -->
+
+            </div>
+
+        </div>
+
+        <!-- STATS -->
+        <div class="page pos-4" id="stats">
+
+            <!-- STATS -->
+            <div class="stats-container absolute-center-addmenu">
+
+                <div class="stats-line">
+
+                    <!-- MOOD COUNTER -->
+                    <div class="stats-square">
+
+                        <div class="moodcounter-line">
+
+                            <div class="mood-counter">
+                                <div class="mood-circle happy">0</div>
+                                <p class="mood-counter-label">HAPPY</p>
+                            </div>
+        
+                            <div class="mood-counter">
+                                <div class="mood-circle good">0</div>
+                                <p class="mood-counter-label">GOOD</p>
+                            </div>
+
+                        </div>
+
+                        <div class="moodcounter-line">
+
+                            <div class="mood-counter">
+                                <div class="mood-circle confused">0</div>
+                                <p class="mood-counter-label">CONFUSED</p>
+                            </div>
+        
+                            <div class="mood-counter">
+                                <div class="mood-circle sad">0</div>
+                                <p class="mood-counter-label">SAD</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- MOST USED WORDS -->
+                    <div class="stats-square"> 
+                        
+                        <p class="mus-title">parole più usate</p>
+
+                        <span class="mus-line">
+                            <p class="mus-word"></p>
+                            <p class="mus-count">0</p>
+                        </span>
+
+                        <span class="mus-line">
+                            <p class="mus-word"></p>
+                            <p class="mus-count">0</p>
+                        </span>
+
+                        <span class="mus-line">
+                            <p class="mus-word"></p>
+                            <p class="mus-count">0</p>
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="stats-line">
+
+                    <!-- FIRST AND LAST DATE -->
+                    <div class="stats-square">
+                        
+                        <div class="fal-container">
+
+                            <p class="last-date">
+                                00/00/0000
+                            </p>
+        
+                            <p class="first-date">
+                                00/00/0000
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- NOTE COUNT -->
+                    <div class="stats-square">
+                        <div class="notecount-circle" id="notecount">0</div>
+                        <p class="notecount-title">numero di note totali</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- INFO -->
+        <div class="page pos-5" id="info">
+
+            <!-- INFO WINDOW -->
+            <div class="info-window">
+
+                <img src="assets/logotype.png" class="info-logo hor-center-addmenu">
+
+                <div class="info-text-container hor-center-addmenu">
+
+                    <p class="info-text">v1.1.0  (<a href="https://github.com/Juro0/moodmirror/blob/main/changelog.md" target="blank">release history</a>).</p>
+
+                    <p class="info-text">
+                        Mood mirror was created by <a target="blank" href="https://juro0.github.io/">Juri Gemignani</a> during February 2023.
+                    </p>
+
+                    <p class="info-text">
+                        Idea and design inspired by <a target="blank" href="https://daylio.net/">Dailyio</a>. Icons from <a target="blank" href="https://iconscout.com/unicons/">Iconscout</a>.
+                    </p>
+
+                    <p class="info-text">
+                        This project is open-source and accessible by everyone, who want to modify this can create a fork on the <a target="blank" href="https://github.com/Juro0/moodmirror">Github Repo</a>.
+                    </p>
+
+                    <p class="info-text">
+                        Notes are saved in local storage. Clearing your browser or site cache, switching devices or browsers will result in the loss of your notes.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- lenguages -->
+        <script src="lenguages/it_IT.js"></script>
+        <script src="lenguages/en_EN.js"></script>
+
+        <!-- js imports -->
+        <script src="script/lenguage.js"></script>
+        <script src="script/script.js"></script>
+        <script src="script/notes.js"></script>
+        <script src="script/stats.js"></script>
+        <script src="script/storage.js"></script>
+        <script src="script/listeners.js"></script>
+
+    </body>
+
+</html>

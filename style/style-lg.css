@@ -1,0 +1,654 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+
+    /* COLORS */
+    --clr-black: #1b1b1b;
+    --clr-gray: #272727;
+    --clr-silver: #cccccc;
+    --clr-white: #f0f0f0;
+    --clr-pink: #f598c3;
+    --clr-rose: #f95fa7;
+
+    --happy: #f3c853;
+    --good: #2ed573;
+    --confused: #5352ed;
+    --sad: #9466e4;
+
+    /* FONTS */
+    --fnt-title: 'Roboto', sans-serif;
+    --fnt-text: 'Space Grotesk', sans-serif;
+
+    /* WEIGHT */
+    --wgt-regular: 400;
+    --wgt-medium: 500;
+    --wgt-semi: 600;
+    --wgt-bold: 700;
+
+}
+
+/* GENERAL */
+
+html, body {
+    height: 100%;
+    background-color: var(--clr-gray);
+    font-family: var(--fnt-text);
+    font-weight: var(--wgt-regular);
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all .3s linear;
+}
+
+*::selection {
+    background: none;
+}
+
+.desktop-hide {
+    display: none;
+}
+
+.hide {
+    display: none !important;
+}
+
+.shadow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 101;
+}
+
+.absolute-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.absolute-center-addmenu {
+    position: fixed;
+    top: 50%;
+    left: calc(50% + 7rem);
+    transform: translate(-50%, -50%);
+}
+
+.hor-center {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hor-center-addmenu {
+    position: relative;
+    left: calc(50% + 7rem);
+    transform: translateX(-50%);
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--clr-rose);
+    border-radius: .5rem;
+}
+
+/* RESET ALL INPUT */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+/* ============================================ GENERAL ============================================ */
+
+.page {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--clr-gray);
+}
+
+.pos-1 { transform: translateX(-200%); }
+.pos-2 { transform: translateX(-100%); }
+.pos-3 { transform: translateX(0); }
+.pos-4 { transform: translateX(100%); }
+.pos-5 { transform: translateX(200%); }
+
+/* ============================================ MENU ============================================ */
+
+.menu {
+    width: 14rem;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--clr-black);
+    text-align: center;
+    z-index: 100;
+}
+
+.menu-logo {
+    margin: 3rem 0;
+    width: 60%;
+}
+
+.menu-buttons {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.menu-button {
+    width: 100%;
+    border: none;
+    border-top: 1px solid var(--clr-pink);
+    border-bottom: 1px solid var(--clr-pink);
+    background: none;
+    margin: 0;
+    height: 3rem;
+    color: var(--clr-white);
+    font-family: var(--fnt-title);
+    font-size: .9rem;
+    font-weight: var(--wgt-medium);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.menu-button:hover {
+    background: var(--clr-pink);
+    cursor: pointer;
+}
+
+.menu-button.active {
+    background: var(--clr-rose) !important;
+    border: none;
+}
+
+.menu-footer {
+    margin-top: 55%;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-info-logo {
+    color: var(--clr-pink);
+    font-size: 3rem;
+}
+
+.menu-info-text {
+    margin: .5rem 0;
+    color: var(--clr-white);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ============================================ CONFIRM ============================================ */
+
+.confirm-window {
+    width: 30rem;
+    height: 16rem;
+    background: var(--clr-gray);
+    z-index: 102;
+    border-radius: 15px;
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.confirm-title {
+    font-size: 1.5rem;
+    color: var(--clr-white);
+    font-weight: var(--wgt-medium);
+    font-family: var(--fnt-title);
+    letter-spacing: 2px;
+}
+
+.confirm-content {
+    color: var(--clr-silver);
+    font-size: 1.1rem;
+    margin: 1rem 0;
+}
+
+.confirm-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.confirm-button {
+    width: 12rem;
+    height: 2.2rem;
+    color: var(--clr-white);
+    border-radius: 10px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: var(--wgt-medium);
+    cursor: pointer;
+    margin: 0 .5rem;
+}
+
+.cancel {
+    background: none;
+    border: 1px solid var(--clr-silver);
+}
+
+.confirm {
+    background: #ff2f2f;
+    border: none;
+}
+
+/* ============================================ NEW NOTE ============================================ */
+
+.newnote-window {
+    width: 55rem;
+    height: 35rem;
+    background: var(--clr-gray);
+    z-index: 102;
+    border-radius: 15px;
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mood-selector {
+    width: 22rem;
+    height: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.ms-mood, .note-mood {
+    font-size: 3.5rem;
+}
+.ms-mood {
+    cursor: pointer;
+}
+
+.ms-mood.active {
+    scale: 120%;
+}
+
+.happy-mood { color: var(--happy) }
+.good-mood { color: var(--good) }
+.confused-mood { color: var(--confused) }
+.sad-mood { color: var(--sad) }
+
+.mood-questions {
+    width: 90%;
+    height: 75%;
+}
+
+.label {
+    font-family: var(--fnt-title);
+    font-size: 1rem;
+    color: var(--clr-white);
+    letter-spacing: 1px;
+    margin-top: 1rem;
+}
+
+.newnote-input {
+    width: 50%;
+    border: none;
+    background: var(--clr-black);
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    color: var(--clr-silver);
+    font-family: sans-serif;
+    margin: 1rem 0;
+    height: 2rem;
+    font-size: 1rem;
+}
+
+.newnote-input:focus, .newnote-input:focus-visible {
+    outline: none;
+}
+
+.newnote-textarea {
+    resize: none;
+    width: 70%;
+    min-height: 12rem;
+}
+
+.confirm-pink {
+    background: var(--clr-rose);
+}
+
+#input-error {
+    color: #ff2f2f;
+    letter-spacing: 1px;
+    font-style: 1.2rem;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* ============================================ LENGUAGES ============================================ */
+
+.lenguage-changer {
+    width: 55rem;
+    height: 35rem;
+    background: var(--clr-gray);
+    z-index: 102;
+    border-radius: 15px;
+    padding: 2rem 2rem;
+}
+
+.close-lenguage-window {
+    color: #ff2f2f;
+    font-size: 3rem;
+    font-family: var(--fnt-title);
+    width: 95%;
+    text-align: right;
+}
+
+#close-lenguage-window {
+    cursor: pointer;
+}
+
+.lenguage {
+    margin: 2rem 2.5rem;
+    float: left;
+    text-align: center;
+}
+
+.flag-img {
+    height: 3rem;
+    border-radius: 5px;
+    margin-bottom: .2rem;
+    cursor: pointer;
+}
+
+.flag-label {
+    color: var(--clr-silver);
+}
+
+/* ============================================ DIARIO ============================================ */
+
+/* add note button */
+
+.add-note {
+    position: absolute;
+    top: 2.2rem;
+    width: 25rem;
+    height: 5rem;
+    background: var(--clr-pink);
+    border-radius: 1rem;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    z-index: 99;
+}
+
+.uil-plus-circle {
+    color: var(--clr-white);
+    font-size: 3.5rem;
+}
+
+.add-note-cta {
+    font-size: 1.2rem;
+    font-weight: var(--wgt-semi);
+    color: var(--clr-white);
+    font-family: var(--fnt-title);
+    letter-spacing: 1px;
+}
+
+.add-note-subtitle {
+    color: var(--clr-white);
+    width: 18rem;
+}
+
+/* notes */
+
+.diary-notes-container {
+    position: absolute;
+    top: calc(50% + 3rem);
+    left: calc(50% + 7rem);
+    transform: translate(-50%, -50%);
+    height: 75%;
+    width: 55rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.note {
+    width: 82%;
+    height: max-content;
+    background: var(--clr-black);
+    border-radius: 1rem;
+    padding: 2rem 2.5rem;
+    color: var(--clr-white);
+    margin: 1rem 0 3rem;
+    cursor: default;
+}
+
+.note-first-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.note-first-line > .uil {
+    width: 6.5rem;
+}
+
+.note-title {
+    font-family: var(--fnt-title);
+    font-size: 1.6rem;
+    font-weight: var(--wgt-semi);
+    letter-spacing: 1px;
+}
+
+.note-date {
+    color: var(--clr-silver);
+    font-family: sans-serif;
+    font-weight: var(--wgt-medium);
+    letter-spacing: 2px;
+    width: 6.5rem;
+    text-align: center;
+}
+
+.note-description {
+    line-height: 1.5rem;
+}
+
+/* ============================================ STATISTICHE ============================================ */
+
+.stats-container {
+    width: 65rem;
+    height: 37rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.stats-line {
+    display: flex;
+    height: 50%;
+    align-items: center;
+}
+
+.stats-square {
+    width: 22rem;
+    height: 16rem;
+    background: var(--clr-black);
+    border-radius: 1rem;
+    margin: 1rem;
+    cursor: default !important;
+}
+
+/* mood counter */
+
+.mood-counter {
+    height: 50%;
+    width: 50%;
+}
+
+.moodcounter-line {
+    display: flex;
+    height: 45%;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mood-circle {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 100rem;
+    border: 5px solid;
+    margin-left: 50%;
+    transform: translate(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--clr-white);
+}
+
+.mood-counter-label {
+    color: var(--clr-silver);
+    margin-top: .5rem;
+}
+
+.happy { border-color: var(--happy) }
+.good { border-color: var(--good) }
+.confused { border-color: var(--confused) }
+.sad { border-color: var(--sad) }
+
+/* most used words */
+
+.mus-title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.7rem;
+    margin: 1rem 0 2rem;
+    color: var(--clr-white);
+}
+
+.mus-line {
+    width: 75%;
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    color: var(--clr-silver);
+    font-size: 1.1rem;
+}
+
+.mus-count {
+    color: var(--clr-white);
+}
+
+.mus-count::before {
+    content: "x";
+}
+
+/* first and last date */
+
+.fal-container {
+    height: 60%;
+    width: 90%;
+    margin: 12% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    color: var(--clr-white);
+    font-size: 1.1rem;
+}
+
+/* note count */
+
+.notecount-circle {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100rem;
+    border: 5px solid var(--clr-rose);
+    position: relative;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--clr-white);
+    font-size: 1.5rem;
+}
+
+.notecount-title {
+    position: relative;
+    top: 37%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    color: var(--clr-white);
+    font-size: 1.3rem;
+}
+
+/* ============================================ INFO ============================================ */
+
+.info-logo {
+    position: relative;
+    top: 7rem;
+    width: 12rem;
+}
+
+.info-text-container {
+    position: absolute;
+    top: 15rem;
+    left: calc(50% + 7rem);
+    width: 50rem;
+}
+
+.info-text {
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--clr-silver);
+    font-size: 1.2rem;
+}
+
+.info-text > a {
+    color: var(--clr-silver);
+    font-weight: var(--wgt-semi);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
