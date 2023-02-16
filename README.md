@@ -16,7 +16,7 @@
 	- [Todo](#todo)
 	- [Bugs](#bugs)
 - [Authors and Contributors](#authors-and-contributor)
-#  MOODMIRROR-it
+#  MOODMIRROR [it]
 
 ## descrizione
 moodmirror è un diario di tracciamento per l'umore, nato semplicemente per tenere traccia della propria giornata.
@@ -36,7 +36,7 @@ verranno menzionati anche coloro che contribuiranno nella creazione di file in d
 ## problemi
 non sono ancora stati riscontrati bug importanti nel codice. nel caso ne troviate uno, siete pregati di aprire una issues.
  
-# MOODMIRROR-en
+# MOODMIRROR [en]
 
 ## description
 moodmirror is a mood tracking diary, born simply to keep track of your day. you have the option to add a note about the day at any time, surrounded by a phrase (or word) to describe it and a nice image that represents your mood. there is also a statistics page where you can view information about your notes. notes are saved in localStorage, changing browser or clearing history/cache will permanently delete notes.
